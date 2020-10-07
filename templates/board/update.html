@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        {% extends 'form.html' %}
+        {% block center %}
+        <div align="center">
+            <h3>Update 수정 페이지</h3>
+            <form method="POST">{% csrf_token %}
+                <table border='0'>
+                    <tr>
+                        <td><input type="text" style="width:300px; height:20px;"
+                            value={{ border.제목 }} name="title"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea style="width: 298px; height:50px;" 
+                            name="context">{{ border.내용 }}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="수 정">
+                        <input type="reset" value="취 소" onclick="history.back();"></td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+
+        {% endblock %}
+    </body>
+</html>

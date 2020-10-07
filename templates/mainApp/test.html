@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    <h1>계정 등록 페이지 입니다</h1> 
+        <input type="text" id="id" placeholder="아이디" onchange="chkData_i()">(*필수항목)<br>
+        <input type="password" id="password" placeholder="비밀번호" onchange="chkData_p()">(*필수항목)<br>
+        <input type="password_conf" id="password" placeholder="비밀번호 확인" onchange="pwchk">
+        <label id = "confirm"> </label><br>
+        <input type="text" id="name" placeholder="이름"><br>
+
+
+    
+    <hr>
+        <label id ="label">안녕하세요</label>
+
+        <input type="text" id="inPut" onchange="pwchk()"><br>
+        <input type="text" id = "outPut"><br>
+        <input type="text"><br>
+
+    <hr>
+        <form id="fo" action="{% url 'mainIndex' %}" method="post">{% csrf_token %}
+            <input type="text" id="name" placeholder="이름">(*필수항목)<br>
+            <input type="button" value="저장" onclick="chkData()"><br>
+        </form>
+    <hr>
+        자바스크립트 예문<br>
+        <input type="text" id="demo" size="50"><br>
+        <label id="aa">ㅇㅇ</label><br><hr>
+        <input type="button" value="버튼" onclick="display()">
+        <script>
+            function display(){
+                alert('click 이벤트 발생')
+            }
+
+
+
+        /*
+            demo.value="내용이 들어간다"
+        
+            var a = confirm('처음 방문입니까?')
+            if(a == true){
+                aa.value="처음 방문은 회원가입을 하고 오세요"
+                alert("안녕하세요 환영합니다\n alert 대화상자 입니다")
+            }
+            else{
+                alert("다시 만나서 반갑습니다.")
+            }
+        /*
+            document.write("안녕하세요<hr>")
+        */
+        //한줄주석
+        
+        </script>
+    </body>
+</html>

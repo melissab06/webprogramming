@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% extends 'form.html' %}
+    
+        {% block center %}
+        phonebook의 update 페이지입니다
+        <br><br>
+        <form method="post">{% csrf_token %}
+            이름: <input type="text" value="{{phonebook.이름}}"name="name"><br>
+            전화번호: <input type="text" value ="{{phonebook.전화번호}}" name="phNum"><br>
+            이메일: <input type="email" value="{{phonebook.이메일}}" name="email"><br>
+            주소: <input type="text" value="{{phonebook.주소}}" name="addr"><br>
+            생년월일: <input type="date" value="{{phonebook.생년월일 | date:'Y-m-d'}}" name="bir"><br>
+            <input type="submit" value="확인">
+        </form>
+        {% endblock %}
+    </body>
+</html>

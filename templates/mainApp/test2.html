@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+
+            function chkData_i(){
+                if(document.getElementById("id").value==""){
+                    alert("아이디는 필수 항목입니다")
+                }
+            }
+
+            function chkData_p(){
+                p = document.getElementById("password").value
+                if(document.getElementById("password").value==""){
+                    alert("비밀번호는 필수 항목입니다")
+                }
+            }
+
+            function pwchk(){
+                inPut = document.getElementById('password').value;
+                inPut_2= document.getElementById('password_conf').value;
+                if (inPut == input_2){
+                    document.getElementById('confirm').innerHTML = "확인";
+                }
+                else{
+                    document.getElementById('inPut').value = "";
+                    document.getElementById('confirm').innerHTML = "불일치";
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <h2>계정 등록 페이지 입니다</h2> 
+    <form id="fo" method="post">{% csrf_token %}
+        <input type="text" id="id" placeholder="아이디" onchange="chkData_i()">(*필수항목)<br>
+        <input type="password" id="password" placeholder="비밀번호" onchange="chkData_p()">(*필수항목)<br>
+        <input type="password_conf" id="password" placeholder="비밀번호 확인" onchange="pwchk">
+        <label id = "confirm"> </label><br>
+        <input type="text" id="first_name" placeholder="이름"><br>
+        <input type="text" id="last_name" placeholder="성"><br>
+        <input type="email" id="email" placeholder="이메일"><br>
+        <input type="submit" value="가입"><br>
+    </form>
+    </body>
+</html>

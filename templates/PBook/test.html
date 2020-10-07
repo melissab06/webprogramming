@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>get 방식 이해하기</h1>
+        <form>
+            아이디: <input type="text" name="userId"><br>
+            비밀번호: <input type="text" name="userPw"><br>
+            <input type="submit" value="전송">
+        </form>
+        <br><br>
+        <h1>post 방식 이해하기</h1>
+        <form method="post">{% csrf_token %}
+            아이디: <input type="text" name="userId"><br>
+            비밀번호: <input type="text" name="userPw"><br>
+            <input type="submit" value="전송">
+        </form>
+    </body>
+</html>

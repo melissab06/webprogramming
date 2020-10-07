@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% extends 'form.html' %}
+    
+        {% block center %}
+        <div align="center">
+        로그인 페이지 입니다<br>
+        <form action="{% url 'login' %}" method="post">{% csrf_token %}
+            <input type="text" name="username" placeholder="아이디"><br>
+            <input type="password" name="password" placeholder="비밀번호"><br>
+            <input type="submit" value="로그인">
+            <button type="button" onclick="location.href='{% url 'createAccount' %}'">회원가입</button>
+        </form>
+        </div>
+
+        {% if form.errors %}
+            <script type="text/javascript">
+                alert("ID나 비밀번호가 일치하지 않습니다.");
+            </script>  
+        {% endif %}
+        {% endblock %}
+
+
+
+        <hr>
+        사용자 id => username<br>
+        사용자 pw => password<br>
+        이름 => first_name <br>
+        성 => last_name<br>
+        이메일 => email<br>
+        <hr>
+        <button type="button" onclick="location.href='{% url 'mainIndex' %}'">
+        메인</button>
+        
+    </body>
+</html>

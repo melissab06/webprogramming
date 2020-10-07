@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        .in{ display:inline; padding:0 10px;}
+        .title{ color:burlywood; font-size: 50px; font-family: Gabriola;}
+        /*
+        table{border-collapse: collapse; border: 1px solid black;}
+        th{text-align: right; border: 1px solid black;}
+        td{border: 1px solid black;}
+        */
+    </style>
+    </head>
+    <body>
+    {% load staticfiles %}
+    <!--   header   -->
+    <div align="center">
+        <table>
+            <tr>
+                <td width="100">
+                    <a href="{% url 'mainIndex' %}">
+                    <img width="70" height="50" src="{% static 'ucl.jpg' %}">
+                    </a>
+                </td>
+                <td><h1 class="title">Melissa &nbsp; LAB</h1></td>
+            </tr>
+        </table>
+    </div>
+    <div align="right">
+        <hr>
+        <ul>
+            <li class='in'><a href="{% url 'mainIndex' %}">Home</a></li>
+            <li class='in'><a href="{% url 'PB:index' %}">phonebook</a></li>
+            <li class='in'><a href="{% url 'BD:index' 1 %}">게시판</a></li>
+            <li class='in'><a href="{% url 'updown:index' %}">자료실</a></li>
+            {% if user.is_active  %}
+                <li class='in'><a href="{% url 'logout' %}">로그아웃</a></li>
+                <li class='in'><a href="{% url 'userInfo' user.id %}">계정정보</a></li>
+            {% else %}
+                <li class='in'><a href="{% url 'login' %}">로그인</a></li>
+            {% endif %}
+        </ul>
+        <hr>
+    </div>
+        {% block center %}
+
+        {% endblock %}
+        <hr>
+        <!--   footer   -->
+        <div>
+            <i style="color:purple; font-size:15px; font-family:Gabrida;">Copyright &copy; Melissa LAB. All reserved</i>
+        </div>
+    </body>
+</html>

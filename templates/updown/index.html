@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% extends 'form.html' %}
+    {% block center %}
+        updown index 페이지 입니다.<br>
+        {{ dir }}
+        <form method = "POST" action="{% url 'updown:upload' %}"
+                    enctype="multipart/form-data">{% csrf_token %}
+            <ul>
+                {% for li in dir %}
+                    <li><a href="{% url 'updown:download' li %}">{{ li }}</a></li>
+                {% endfor %}
+            </ul>
+            <input type="file" name="files" multiple>
+            <input type="submit" value="upload">
+        </form>
+        <button type="button" onclick="location.href='{% url 'updown:download' dir.0 %}'">
+            다운로드</button>
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% extends 'form.html' %}
+    {% block center %}
+    <div align="center">
+        <h3>add 추가 페이지</h3>
+        <form method="POST">{% csrf_token %}
+            <table border="0">
+                <tr><td><input type="text" placeholder="제 목" name="title"></td></tr>
+                <tr><td><textarea name="context" placeholder="내 용"></textarea></td></tr>
+                <!--
+                    <tr><td><input type="text" hidden name="author" value="{{ user.username }}"></td></tr>
+                <tr><td><input type="text" hidden name="cdate" value="{% now 'Y-m-d H:i:s' %}"></td></tr>
+                <tr><td><input type="text" hidden name="udate" value="{% now 'Y-m-d H:i:s' %}"></td></tr>
+                <tr><td><input type="text" hidden name="vcount" value='0'></td></tr>
+                -->
+                <tr><td><input type="submit" value="확인"></td></tr>
+            </table>
+        </form>
+    </div>
+    {% endblock %}
+    </body>
+</html>

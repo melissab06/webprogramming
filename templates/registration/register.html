@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% extends 'form.html' %}
+    
+        {% block center %}
+    <div align=center>
+    <h2>계정 등록 페이지 입니다</h2> 
+    <form method="post">{% csrf_token %}
+        <input type="text" id="id" name='id' placeholder="아이디"><br>
+        <input type="password" id="password" name='password' placeholder="비밀번호"><br>
+        <input type="password" id="password_confirm" name='password_confirm' placeholder="비밀번호 확인"><br>
+        <input type="text" id="first_name" name='first_name' placeholder="이름"><br>
+        <input type="text" id="last_name" name='last_name' placeholder="성"><br>
+        <input type="email" id="email" name='email' placeholder="이메일"><br>
+        <input type="submit" value="가입"><br>
+    </form>
+    </div>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        {% extends 'form.html' %}
+    
+        {% block center %}
+        
+        <table border="1" style="width:60%"" align=center>
+            <tr>
+                <th>아이디</th><th>이름</th><th>전화번호</th>
+            </tr>
+            {% for values in phonebook %}
+                <tr>
+                <td>{{ values.id }}</td>
+                <td><a href="{% url 'PB:detail' values.id %}">{{ values.이름}}</a></td>  
+                <td>{{ values.전화번호}}</td>
+                </tr>
+            {% endfor %}
+            <!--뭉텅이 내에서 정보 하나씩 빼오기/key.values-->
+        </table>
+        {% if user.is_active %}
+        <button type="button" onclick="location.href='{% url 'PB:add'%}'">추가</button>
+        {% endif %}
+        {% endblock %}
+
+
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        {{ borderTable }} 페이지 연습중!!<br>
+        이전 페이지 번호: {{borderTable.previous_page_number}}<br>
+        현재 페이지 번호: {{borderTable.number}}<br>
+        다음 페이지 번호: {{borderTable.next_page_number}}<br>
+        끝 페이지 번호: {{borderTable.paginator.num_pages}}<br>
+
+        이전 값이 있다면: {{borderTable.has_previous}}<br>
+        다음 값이 있다면: {{borderTable.has_next}}<br>
+
+        <button type="button" disabled="disabled">이전</button>
+        <button type="button">다음</button>
+    </body>
+</html>

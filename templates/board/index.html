@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% extends 'form.html' %}
+    
+    {% block center %}
+        board index 페이지 입니다. 
+        <table border="1" align="center">
+        <tr>
+            <th width="100">번호</th><th width="100">제목</th>
+            <th width="100">작성자</th><th width="100">조회수</th>  
+        </tr>
+        {% for i in userAll %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>
+                {% if user.is_active %}
+                <a href="{% url 'BD:detail' i.id %}">{{i.제목}}</a>
+                {% else %}
+                <a href="{% url 'login' %}">{{i.제목}}</a>
+                {% endif %}
+                </td>
+                <td>{{i.작성자}}</td><td>{{i.조회수}}</td>
+            </tr>
+        {% endfor %}
+        {% if user.is_active %}
+        <tr>
+            <td colspan="4" align="right">
+                {% if userAll.has_previous %}
+                <button onclick="location.href='{% url 'BD:index' userAll.previous_page_number %}'">이전</button>
+                {% else %}
+                <button disabled="disabled">이전</button>
+                {% endif %}
+
+                {% for i in arrPage %}
+                    {% if i == userAll.number %}
+                        <font size ='4'><b><a href="{% url 'BD:index' i %}"> [{{i}}] </a></b></font> 
+                    {% else %} 
+                        <a href="{% url 'BD:index' i %}"> [{{i}}] </a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if userAll.has_next %}
+                <button onclick="location.href='{% url 'BD:index' userAll.next_page_number %}'">다음</button>
+                {% else %}
+                <button disabled="disabled">다음</button>
+                {% endif %}
+
+                {{userAll.number}} / {{userAll.paginator.num_pages}}
+                <button onclick="location.href='{% url 'BD:add' %}'">글쓰기</button>
+            </td>
+        </tr>
+        {% endif %}
+        </table>
+        {% now 'Y-m-d H:i:s' %}
+    {% endblock %}
+    </body>
+</html>

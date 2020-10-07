@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% extends 'form.html' %}
+    
+        {% block center %}
+        <script>
+            location.href="{% url 'login' %}"
+        </script>
+        {% endblock %}
+        
+
+        
+        로그아웃 페이지 입니다<br>
+        <button type="button" onclick="location.href='{% url 'mainIndex' %}'">
+        메인</button>
+    </body>
+</html>
