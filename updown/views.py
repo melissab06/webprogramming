@@ -4,6 +4,7 @@ import os
 from django.http import HttpResponse
 from django.utils.encoding import force_text
 import re
+from urllib.parse import urlparse
 
 # Create your views here.
 
@@ -43,12 +44,11 @@ def download(request, test):
     #path="test.png"
     file_path = os.path.join(settings.MEDIA_ROOT, test)
     print("file_path: ", file_path)
-    test = urllib.parse.quote(test)
     if os.path.exists(file_path): #해당 파일 존재시 true
         readFile = open(file_path, "rb")
         response = HttpResponse(readFile.read())
-        response['Content-Disposition'] = 'attachment; filename=' +test
-        response['Content-type'] = mimetypes.guess_type(test)[0]
+        response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+        response['Content-type'] = 'image/png'
 
         #response['Content-type'] = 'image/png' #이미지
         #response['Content-type'] = 'text/plain' #텍스트
